@@ -214,18 +214,19 @@ export const Treatments: React.FC<TreatmentsProps> = ({ onSelectTopic }) => {
           ))}
         </div>
 
-        {/* Phone Variant: Sliding Right-to-Left Animation + Free 360° Drag in Any Direction */}
+        {/* Phone Variant: Sliding Right-to-Left Animation + Left/Right (Horizontal Only) Drag When Touched */}
         <div className="block md:hidden">
           <div
             className="relative overflow-visible py-2"
             onTouchStart={pauseAutoPlayTemporarily}
           >
-            {/* Sliding & Draggable Container */}
+            {/* Sliding & Horizontal-Only Draggable Container */}
             <div className="relative min-h-[460px] flex items-center justify-center">
               <AnimatePresence mode="popLayout" initial={false}>
                 <motion.div
                   key={treatments[currentIndex].id}
-                  drag
+                  drag="x"
+                  dragDirectionLock
                   dragSnapToOrigin
                   dragElastic={0.4}
                   initial={{ x: 140, opacity: 0, scale: 0.94 }}
@@ -233,22 +234,21 @@ export const Treatments: React.FC<TreatmentsProps> = ({ onSelectTopic }) => {
                   exit={{ x: -140, opacity: 0, scale: 0.94 }}
                   transition={{ type: 'spring', stiffness: 280, damping: 26 }}
                   whileDrag={{
-                    scale: 1.05,
+                    scale: 1.03,
                     zIndex: 50,
-                    rotate: 1.5,
                     boxShadow: '0 20px 30px -5px rgba(37,99,235,0.25), 0 10px 15px -5px rgba(0,0,0,0.1)',
                     cursor: 'grabbing',
                   }}
                   onDragStart={pauseAutoPlayTemporarily}
                   onDragEnd={(_, info) => {
-                    // If dragged horizontally past 50px, advance cards
-                    if (info.offset.x < -50) {
+                    // If dragged horizontally past 40px or with quick flick, advance cards
+                    if (info.offset.x < -40 || info.velocity.x < -300) {
                       handleNext();
-                    } else if (info.offset.x > 50) {
+                    } else if (info.offset.x > 40 || info.velocity.x > 300) {
                       handlePrev();
                     }
                   }}
-                  className="w-full max-w-[340px] touch-none select-none cursor-grab active:cursor-grabbing"
+                  className="w-full max-w-[340px] touch-pan-y select-none cursor-grab active:cursor-grabbing"
                 >
                   <TreatmentCard
                     treatment={treatments[currentIndex]}
