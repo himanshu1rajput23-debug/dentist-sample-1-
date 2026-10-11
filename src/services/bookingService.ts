@@ -4,8 +4,8 @@ const STORAGE_KEY_CONFIG = 'apex_dental_clinic_config';
 const STORAGE_KEY_SUBMISSIONS = 'apex_dental_submissions';
 
 export const DEFAULT_CLINIC_CONFIG: ClinicConfig = {
-  phone: '(02) 8319 2888',
-  email: 'consultations@apexdentalstudio.com.au',
+  phone: '000000000',
+  email: 'consultations@rahulclinic.com',
   webhookUrl: 'https://webhook.site/placeholder-dental-leads',
   simulateFailure: false,
 };
@@ -14,7 +14,11 @@ export function getClinicConfig(): ClinicConfig {
   try {
     const raw = localStorage.getItem(STORAGE_KEY_CONFIG);
     if (raw) {
-      return { ...DEFAULT_CLINIC_CONFIG, ...JSON.parse(raw) };
+      const parsed = JSON.parse(raw);
+      if (parsed.phone === '(02) 8319 2888') {
+        parsed.phone = '000000000';
+      }
+      return { ...DEFAULT_CLINIC_CONFIG, ...parsed };
     }
   } catch (err) {
     console.error('Failed to load clinic config from storage', err);
@@ -87,7 +91,7 @@ export async function submitConsultationBooking(data: BookingFormData): Promise<
 
   const payload = {
     event: 'consultation_requested',
-    source: 'Apex Dental Studio Landing Page',
+    source: 'Rahul Clinic Landing Page',
     timestamp: new Date().toISOString(),
     recipient_email: config.email,
     lead: {

@@ -108,7 +108,7 @@ export const ProblemSolutionBenefits: React.FC<ProblemSolutionBenefitsProps> = (
               onClick={onOpenBooking}
               className="px-8 py-4 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[17px] shadow-md hover:bg-[#15803d] active:bg-[#166534] transition-all cursor-pointer inline-flex items-center gap-2"
             >
-              Book a Call
+              Book Appointment
             </button>
           </div>
         </div>
@@ -131,10 +131,10 @@ export const ProblemSolutionBenefits: React.FC<ProblemSolutionBenefitsProps> = (
 
       {/* 3. BENEFITS (three zigzag rows) */}
       <section className="py-16 sm:py-20 bg-[#FFFFFF] border-t border-[#111C2C]/10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
           {/* Row 1 */}
-          <div className="p-6 sm:p-8 rounded-2xl border border-[#2563EB]/25 bg-[#FFFFFF] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
+          <div className="p-6 sm:p-8 rounded-2xl border border-[#2563EB]/25 bg-[#FFFFFF] shadow-xs">
+            <div className="space-y-2">
               <span className="text-xs font-heading font-semibold text-[#2563EB] uppercase tracking-wider block">
                 What you get
               </span>
@@ -145,18 +145,11 @@ export const ProblemSolutionBenefits: React.FC<ProblemSolutionBenefitsProps> = (
                 We match the color and shape to your face. No fake look. You pick what feels right.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={onOpenBooking}
-              className="px-6 py-3 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[15px] shadow-sm hover:bg-[#15803d] active:bg-[#166534] transition-all cursor-pointer whitespace-nowrap shrink-0"
-            >
-              Book a Call
-            </button>
           </div>
 
           {/* Row 2 */}
-          <div className="p-6 sm:p-8 rounded-2xl border border-[#2563EB]/25 bg-[#2563EB]/[0.04] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
+          <div className="p-6 sm:p-8 rounded-2xl border border-[#2563EB]/25 bg-[#2563EB]/[0.04] shadow-xs">
+            <div className="space-y-2">
               <span className="text-xs font-heading font-semibold text-[#2563EB] uppercase tracking-wider block">
                 What you get
               </span>
@@ -167,18 +160,11 @@ export const ProblemSolutionBenefits: React.FC<ProblemSolutionBenefitsProps> = (
                 We tell you each step. We go slow. Raise your hand and we stop.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={onOpenBooking}
-              className="px-6 py-3 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[15px] shadow-sm hover:bg-[#15803d] active:bg-[#166534] transition-all cursor-pointer whitespace-nowrap shrink-0"
-            >
-              Book a Call
-            </button>
           </div>
 
           {/* Row 3 */}
-          <div className="p-6 sm:p-8 rounded-2xl border border-[#2563EB]/25 bg-[#FFFFFF] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
+          <div className="p-6 sm:p-8 rounded-2xl border border-[#2563EB]/25 bg-[#FFFFFF] shadow-xs">
+            <div className="space-y-2">
               <span className="text-xs font-heading font-semibold text-[#2563EB] uppercase tracking-wider block">
                 What you get
               </span>
@@ -189,13 +175,6 @@ export const ProblemSolutionBenefits: React.FC<ProblemSolutionBenefitsProps> = (
                 You see the price on paper first. One dentist knows your story. Pay a little at a time if you need to.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={onOpenBooking}
-              className="px-6 py-3 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[15px] shadow-sm hover:bg-[#15803d] active:bg-[#166534] transition-all cursor-pointer whitespace-nowrap shrink-0"
-            >
-              Book a Call
-            </button>
           </div>
         </div>
       </section>
@@ -260,14 +239,14 @@ export const ProblemSolutionBenefits: React.FC<ProblemSolutionBenefitsProps> = (
               </div>
             </div>
 
-            {/* 3. Green "Book a Call" button below cards, left-aligned, 28px space above */}
+            {/* 3. Green "Book Appointment" button below cards, left-aligned, 28px space above */}
             <div className="order-4 md:order-3 pt-0 md:pt-7 w-full md:w-auto text-left">
               <button
                 type="button"
                 onClick={onOpenBooking}
                 className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[17px] shadow-md hover:bg-[#15803d] active:bg-[#166534] transition-all cursor-pointer inline-flex items-center justify-center gap-2"
               >
-                Book a Call
+                Book Appointment
               </button>
             </div>
           </div>

@@ -24,13 +24,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, config }) => {
         <a
           href="#"
           className="flex items-center gap-2 md:gap-3 group shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] rounded py-1"
-          aria-label="Apex Dental India Home"
+          aria-label="Rahul Clinic India Home"
         >
           <LogoIcon size={34} className="group-hover:scale-105 md:w-[38px] md:h-[38px] shrink-0" />
           <div className="flex flex-col justify-center">
             {/* Main brand name */}
             <span className="font-heading text-[16px] sm:text-[17px] md:text-[18px] font-extrabold leading-tight text-[#111C2C] block whitespace-nowrap">
-              Apex Dental
+              Rahul Clinic
             </span>
             {/* Tagline / Subtitle */}
             <span className="font-sans text-[10px] md:text-[11px] leading-tight text-[#111C2C]/70 block font-normal tracking-wide whitespace-nowrap">
@@ -93,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, config }) => {
             onClick={onOpenBooking}
             className="px-6 py-2.5 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[17px] shadow-sm hover:bg-[#15803d] active:bg-[#166534] transition-all cursor-pointer"
           >
-            Book a Call
+            Book Appointment
           </button>
         </div>
 
@@ -111,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, config }) => {
             onClick={onOpenBooking}
             className="px-5 py-2 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[15px] shadow-sm hover:bg-[#15803d] active:bg-[#166534] transition-all cursor-pointer h-10 whitespace-nowrap flex items-center justify-center"
           >
-            Book a Call
+            Book Appointment
           </button>
         </div>
 

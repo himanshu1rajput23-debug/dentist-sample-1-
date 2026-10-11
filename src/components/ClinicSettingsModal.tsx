@@ -108,7 +108,7 @@ export const ClinicSettingsModal: React.FC<ClinicSettingsModalProps> = ({
                   type="text"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="(02) 8319 2888"
+                  placeholder="000000000"
                   className="w-full px-3.5 py-2 rounded-xl border border-[#111C2C]/15 text-sm font-sans text-[#111C2C] focus:outline-hidden focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20"
                 />
                 <p className="text-[11px] text-[#111C2C]/70">

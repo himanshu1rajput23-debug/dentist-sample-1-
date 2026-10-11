@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Star, CheckCircle, ThumbsUp, ChevronLeft, ChevronRight } from 'lucide-react';
+import reviewsBgImage from '../assets/images/clinic_reviews_bg_1791698440061.jpg';
 
 interface ReviewItem {
   id: string;
@@ -36,7 +37,7 @@ export const Reviews: React.FC = () => {
       source: 'Google Review',
       title: 'Completely changed my confidence',
       quote:
-        'I had been terrified of dentists for nearly 12 years after a bad experience. Apex made me feel calm from the very second I walked in. They showed me my new smile on screen before doing anything, and the price on paper was exact. No shocks. My teeth look incredibly natural!',
+        'I had been terrified of dentists for nearly 12 years after a bad experience. Rahul Clinic made me feel calm from the very second I walked in. They showed me my new smile on screen before doing anything, and the price on paper was exact. No shocks. My teeth look incredibly natural!',
       helpfulCount: 14,
     },
     {
@@ -96,7 +97,7 @@ export const Reviews: React.FC = () => {
       source: 'Google Review',
       title: 'Fixed my front tooth in one visit',
       quote:
-        'Chipped my front tooth right before my sister’s wedding. Apex booked me in quickly, numbed me thoroughly, and matched the tooth colour so seamlessly you cannot tell anything happened. Truly grateful!',
+        'Chipped my front tooth right before my sister’s wedding. Rahul Clinic booked me in quickly, numbed me thoroughly, and matched the tooth colour so seamlessly you cannot tell anything happened. Truly grateful!',
       helpfulCount: 11,
     },
     {
@@ -171,7 +172,7 @@ export const Reviews: React.FC = () => {
       source: 'Google Review',
       title: 'Felt heard, respected and never rushed',
       quote:
-        'I had not stepped foot in a clinic for 8 years due to panic attacks. Apex uses a hand-signal stop rule that they genuinely follow. The gentlest hygienist and dentists you will ever find in India.',
+        'I had not stepped foot in a clinic for 8 years due to panic attacks. Rahul Clinic uses a hand-signal stop rule that they genuinely follow. The gentlest hygienist and dentists you will ever find in India.',
       helpfulCount: 19,
     },
     {
@@ -237,30 +238,41 @@ export const Reviews: React.FC = () => {
   };
 
   return (
-    <section id="reviews" className="py-10 md:py-24 bg-[#F8FAFC] border-t border-[#111C2C]/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="reviews" className="relative overflow-hidden w-full py-5 sm:py-6 md:py-8 bg-[#F8FAFC] border-y border-[#111C2C]/10">
+      {/* Background Image: Clean modern dental clinic waiting area with happy Indian family & receptionist spanning full width edge-to-edge */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none select-none" aria-hidden="true">
+        <img
+          src={reviewsBgImage}
+          alt=""
+          referrerPolicy="no-referrer"
+          className="absolute inset-0 w-full min-w-full h-full object-cover pointer-events-none"
+        />
+        {/* Soft veil overlay */}
+        <div className="absolute inset-0 w-full h-full bg-[#F8FAFC]/75 md:bg-[#F8FAFC]/65 backdrop-blur-[0.5px] pointer-events-none" />
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Google Rating Summary Bar */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 sm:space-y-4 mb-4 md:mb-12">
+        <div className="max-w-3xl mx-auto text-center space-y-1 mb-2.5 md:mb-3.5">
           {/* Eyebrow badge (hidden on mobile) */}
-          <div className="hidden md:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2563EB]/10 text-xs font-heading font-semibold text-[#2563EB]">
+          <div className="hidden md:inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#2563EB]/10 text-xs font-heading font-semibold text-[#2563EB]">
             <span>Patient Stories</span>
           </div>
 
-          <h2 className="font-heading text-[26px] md:text-4xl lg:text-5xl font-extrabold text-[#111C2C] tracking-tight leading-snug">
+          <h2 className="font-heading text-[20px] md:text-2xl lg:text-[28px] font-extrabold text-[#111C2C] tracking-tight leading-snug">
             Real reviews from real patients in India
           </h2>
 
-          <p className="hidden md:block font-sans text-base sm:text-lg text-[#111C2C]/70 leading-relaxed max-w-2xl mx-auto">
-            See why over 850+ patients trust Apex Dental for gentle, anxiety-free care and honest pricing.
+          <p className="hidden md:block font-sans text-xs sm:text-[13.5px] text-[#111C2C]/70 leading-relaxed max-w-2xl mx-auto">
+            See why over 850+ patients trust Rahul Clinic for gentle, anxiety-free care and honest pricing.
           </p>
 
-          {/* Aggregate Rating Summary Card - hidden on mobile to reduce vertical scroll */}
-          <div className="hidden md:inline-flex mt-8 flex-wrap items-center justify-center gap-4 sm:gap-8 bg-[#FFFFFF] border border-[#2563EB]/20 shadow-xs rounded-2xl px-6 py-4">
+          {/* Aggregate Rating Summary Card - compact */}
+          <div className="hidden md:inline-flex mt-1.5 md:mt-2 flex-wrap items-center justify-center gap-4 sm:gap-6 bg-[#FFFFFF] border border-[#2563EB]/20 shadow-xs rounded-2xl px-4 py-2">
             {/* Google Rating */}
-            <div className="flex items-center gap-3">
-              {/* Google G icon */}
-              <div className="w-10 h-10 rounded-full bg-[#FFFFFF] border border-gray-200 flex items-center justify-center shadow-xs">
-                <svg className="w-5 h-5" viewBox="0 0 24 24">
+            <div className="flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-full bg-[#FFFFFF] border border-gray-200 flex items-center justify-center shadow-xs">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24">
                   <path
                     fill="#4285F4"
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -281,33 +293,33 @@ export const Reviews: React.FC = () => {
               </div>
               <div className="text-left">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-heading font-extrabold text-2xl text-[#111C2C] leading-none">
+                  <span className="font-heading font-extrabold text-lg text-[#111C2C] leading-none">
                     4.9
                   </span>
                   <div className="flex text-[#F59E0B]">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-[#F59E0B] text-[#F59E0B]" />
+                      <Star key={i} className="w-3 h-3 fill-[#F59E0B] text-[#F59E0B]" />
                     ))}
                   </div>
                 </div>
-                <div className="font-sans text-xs text-[#111C2C]/70 mt-0.5">
+                <div className="font-sans text-[10.5px] text-[#111C2C]/70 mt-0.5">
                   Overall rating from <strong>850+</strong> patient reviews
                 </div>
               </div>
             </div>
 
-            <div className="hidden sm:block w-px h-10 bg-[#111C2C]/10" />
+            <div className="hidden sm:block w-px h-6 bg-[#111C2C]/10" />
 
             {/* Recommendation badge */}
             <div className="flex items-center gap-2 text-left">
-              <div className="w-9 h-9 rounded-full bg-[#16A34A]/12 flex items-center justify-center text-[#16A34A]">
-                <CheckCircle className="w-5 h-5 stroke-[2.5]" />
+              <div className="w-7 h-7 rounded-full bg-[#16A34A]/12 flex items-center justify-center text-[#16A34A]">
+                <CheckCircle className="w-3.5 h-3.5 stroke-[2.5]" />
               </div>
               <div>
-                <div className="font-heading font-bold text-sm text-[#111C2C]">
+                <div className="font-heading font-bold text-[11.5px] text-[#111C2C]">
                   98% Would Recommend
                 </div>
-                <div className="font-sans text-xs text-[#111C2C]/70">
+                <div className="font-sans text-[10px] text-[#111C2C]/70">
                   Verified clinic records in India
                 </div>
               </div>
@@ -316,9 +328,9 @@ export const Reviews: React.FC = () => {
         </div>
 
         {/* Filter Pills & Slider Controls (Desktop & Tablet) */}
-        <div className="hidden md:flex items-center justify-between gap-4 flex-wrap mb-8">
+        <div className="hidden md:flex items-center justify-between gap-3 flex-wrap mb-4">
           {/* Category Filter Pills */}
-          <div className="flex items-center gap-2 flex-wrap">
+          <div className="flex items-center gap-1.5 flex-wrap">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -327,9 +339,9 @@ export const Reviews: React.FC = () => {
                   setSelectedCategory(cat);
                   setDesktopIndex(0);
                 }}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-heading font-semibold transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-full text-xs font-heading font-semibold transition-all cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-[#2563EB] text-[#FFFFFF] shadow-sm'
+                    ? 'bg-[#2563EB] text-[#FFFFFF] shadow-xs'
                     : 'bg-[#FFFFFF] text-[#111C2C]/70 border border-[#111C2C]/10 hover:border-[#2563EB]/40 hover:text-[#111C2C]'
                 }`}
               >
@@ -340,26 +352,26 @@ export const Reviews: React.FC = () => {
 
           {/* Slider Prev / Next Arrows & Counter */}
           {filteredReviews.length > 3 && (
-            <div className="flex items-center gap-3 shrink-0">
-              <span className="font-sans text-xs sm:text-sm font-medium text-[#111C2C]/60">
+            <div className="flex items-center gap-2.5 shrink-0">
+              <span className="font-sans text-xs font-medium text-[#111C2C]/60">
                 <strong className="text-[#111C2C]">{currentDesktopIndex + 1}–{Math.min(currentDesktopIndex + 3, filteredReviews.length)}</strong> of {filteredReviews.length}
               </span>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <button
                   type="button"
                   onClick={handlePrev}
                   aria-label="Previous review"
-                  className="w-10 h-10 rounded-full bg-[#FFFFFF] border border-[#2563EB]/25 hover:border-[#2563EB] hover:bg-[#2563EB]/5 text-[#111C2C] flex items-center justify-center transition-all shadow-xs cursor-pointer active:scale-95"
+                  className="w-8 h-8 rounded-full bg-[#FFFFFF] border border-[#2563EB]/25 hover:border-[#2563EB] hover:bg-[#2563EB]/5 text-[#111C2C] flex items-center justify-center transition-all shadow-xs cursor-pointer active:scale-95"
                 >
-                  <ChevronLeft className="w-5 h-5 stroke-[2.2]" />
+                  <ChevronLeft className="w-4 h-4 stroke-[2.2]" />
                 </button>
                 <button
                   type="button"
                   onClick={handleNext}
                   aria-label="Next review (show more reviews)"
-                  className="w-10 h-10 rounded-full bg-[#2563EB] hover:bg-[#1d4ed8] text-[#FFFFFF] flex items-center justify-center transition-all shadow-sm cursor-pointer active:scale-95"
+                  className="w-8 h-8 rounded-full bg-[#2563EB] hover:bg-[#1d4ed8] text-[#FFFFFF] flex items-center justify-center transition-all shadow-xs cursor-pointer active:scale-95"
                 >
-                  <ChevronRight className="w-5 h-5 stroke-[2.2]" />
+                  <ChevronRight className="w-4 h-4 stroke-[2.2]" />
                 </button>
               </div>
             </div>
@@ -368,7 +380,7 @@ export const Reviews: React.FC = () => {
 
         {/* Desktop & Tablet: Slider displaying 3 reviews at a time */}
         <div className="hidden md:block">
-          <div className="relative overflow-hidden [--slider-gap:16px] lg:[--slider-gap:24px]">
+          <div className="relative overflow-hidden [--slider-gap:14px] lg:[--slider-gap:20px]">
             <div
               className="flex transition-transform duration-500 ease-out items-stretch"
               style={{
@@ -385,14 +397,14 @@ export const Reviews: React.FC = () => {
                     key={r.id}
                     className="shrink-0 flex flex-col w-[calc((100%-2*var(--slider-gap))/3)]"
                   >
-                    <div className="bg-[#FFFFFF] rounded-2xl p-5 lg:p-6 border border-[#2563EB]/20 shadow-xs hover:shadow-md hover:border-[#2563EB]/50 transition-all flex flex-col justify-between h-full space-y-4">
+                    <div className="bg-[#FFFFFF] rounded-xl p-3.5 lg:p-4 border border-[#2563EB]/20 shadow-xs hover:shadow-md hover:border-[#2563EB]/50 transition-all flex flex-col justify-between h-full space-y-2">
                       {/* Review Header: User info + Star rating */}
-                      <div className="space-y-4">
+                      <div className="space-y-2">
                         <div className="flex items-start justify-between gap-2">
                           {/* User Avatar & Name */}
-                          <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="flex items-center gap-2 min-w-0">
                             <div
-                              className={`w-10 h-10 lg:w-11 lg:h-11 rounded-full ${r.avatarColor} text-[#FFFFFF] font-heading font-bold text-sm flex items-center justify-center shadow-xs shrink-0`}
+                              className={`w-8 h-8 rounded-full ${r.avatarColor} text-[#FFFFFF] font-heading font-bold text-xs flex items-center justify-center shadow-xs shrink-0`}
                             >
                               {r.name
                                 .split(' ')
@@ -400,16 +412,16 @@ export const Reviews: React.FC = () => {
                                 .join('')}
                             </div>
                             <div className="min-w-0">
-                              <h3 className="font-heading font-bold text-[14px] lg:text-[15px] text-[#111C2C] leading-snug truncate">
+                              <h3 className="font-heading font-bold text-[13px] lg:text-[13.5px] text-[#111C2C] leading-snug truncate">
                                 {r.name}
                               </h3>
-                              <div className="flex items-center gap-1.5 mt-0.5">
-                                <CheckCircle className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
-                                <span className="font-sans text-[11px] font-medium text-[#16A34A] truncate">
+                              <div className="flex items-center gap-1 mt-0.5">
+                                <CheckCircle className="w-3 h-3 text-[#16A34A] shrink-0" />
+                                <span className="font-sans text-[10px] font-medium text-[#16A34A] truncate">
                                   {r.source}
                                 </span>
-                                <span className="text-[10px] text-[#111C2C]/40">&bull;</span>
-                                <span className="font-sans text-[11px] text-[#111C2C]/60 shrink-0">
+                                <span className="text-[9px] text-[#111C2C]/40">&bull;</span>
+                                <span className="font-sans text-[10px] text-[#111C2C]/60 shrink-0">
                                   {r.date}
                                 </span>
                               </div>
@@ -417,8 +429,8 @@ export const Reviews: React.FC = () => {
                           </div>
 
                           {/* Google Icon Badge */}
-                          <div className="w-6 h-6 rounded-full bg-[#F8FAFC] border border-gray-200 flex items-center justify-center shrink-0">
-                            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24">
+                          <div className="w-5 h-5 rounded-full bg-[#F8FAFC] border border-gray-200 flex items-center justify-center shrink-0">
+                            <svg className="w-2.5 h-2.5" viewBox="0 0 24 24">
                               <path
                                 fill="#4285F4"
                                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -440,45 +452,45 @@ export const Reviews: React.FC = () => {
                         </div>
 
                         {/* Rating Stars & Treatment Tag */}
-                        <div className="flex items-center justify-between gap-2 pt-1">
-                          <div className="flex items-center gap-1 text-[#F59E0B]">
+                        <div className="flex items-center justify-between gap-2 pt-0.5">
+                          <div className="flex items-center gap-0.5 text-[#F59E0B]">
                             {[...Array(r.rating)].map((_, i) => (
-                              <Star key={i} className="w-4 h-4 fill-[#F59E0B] text-[#F59E0B]" />
+                              <Star key={i} className="w-3 h-3 fill-[#F59E0B] text-[#F59E0B]" />
                             ))}
                           </div>
-                          <span className="text-[11px] font-sans font-medium px-2.5 py-1 rounded-md bg-[#2563EB]/[0.08] text-[#2563EB] truncate max-w-[150px] lg:max-w-[170px]">
+                          <span className="text-[10px] font-sans font-medium px-2 py-0.5 rounded-md bg-[#2563EB]/[0.08] text-[#2563EB] truncate max-w-[130px] lg:max-w-[150px]">
                             {r.treatment}
                           </span>
                         </div>
 
                         {/* Review Title */}
-                        <h4 className="font-heading font-bold text-base text-[#111C2C] leading-snug">
+                        <h4 className="font-heading font-bold text-[13px] lg:text-[13.5px] text-[#111C2C] leading-snug">
                           "{r.title}"
                         </h4>
 
                         {/* Review Text */}
-                        <p className="font-sans text-[13px] lg:text-[14px] text-[#111C2C]/80 leading-relaxed">
+                        <p className="font-sans text-[11.5px] lg:text-[12px] text-[#111C2C]/80 leading-relaxed line-clamp-3">
                           {r.quote}
                         </p>
                       </div>
 
                       {/* Footer: Helpful button & Treatment */}
-                      <div className="pt-4 border-t border-[#111C2C]/10 flex items-center justify-between text-xs text-[#111C2C]/60">
-                        <span className="font-sans text-[11px] truncate max-w-[120px] lg:max-w-none">
+                      <div className="pt-2 border-t border-[#111C2C]/10 flex items-center justify-between text-xs text-[#111C2C]/60">
+                        <span className="font-sans text-[10px] truncate max-w-[120px] lg:max-w-none">
                           Care: <strong className="text-[#111C2C] font-semibold">{r.treatment.split('&')[0]}</strong>
                         </span>
 
                         <button
                           type="button"
                           onClick={() => toggleHelpful(r.id)}
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium transition-colors cursor-pointer shrink-0 ${
+                          className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium transition-colors cursor-pointer shrink-0 ${
                             isLiked
                               ? 'bg-[#2563EB]/15 text-[#2563EB] font-semibold'
                               : 'text-[#111C2C]/60 hover:bg-[#111C2C]/5'
                           }`}
                           aria-label="Mark review as helpful"
                         >
-                          <ThumbsUp className={`w-3.5 h-3.5 ${isLiked ? 'fill-[#2563EB]' : ''}`} />
+                          <ThumbsUp className={`w-3 h-3 ${isLiked ? 'fill-[#2563EB]' : ''}`} />
                           <span>Helpful ({currentHelpful})</span>
                         </button>
                       </div>
@@ -491,9 +503,9 @@ export const Reviews: React.FC = () => {
 
           {/* Bottom Slider Nav: Pagination Dots + "Show More Reviews" Button */}
           {filteredReviews.length > 3 && (
-            <div className="flex items-center justify-between mt-8 pt-4 border-t border-[#111C2C]/10">
+            <div className="flex items-center justify-between mt-4 pt-2.5 border-t border-[#111C2C]/10">
               {/* Pagination Dots */}
-              <div className="flex items-center gap-2" role="tablist" aria-label="Desktop review slides">
+              <div className="flex items-center gap-1.5" role="tablist" aria-label="Desktop review slides">
                 {Array.from({ length: maxDesktopIndex + 1 }).map((_, idx) => (
                   <button
                     key={idx}
@@ -502,10 +514,10 @@ export const Reviews: React.FC = () => {
                     aria-label={`Go to review set ${idx + 1}`}
                     role="tab"
                     aria-selected={currentDesktopIndex === idx}
-                    className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                       currentDesktopIndex === idx
-                        ? 'w-7 bg-[#2563EB]'
-                        : 'w-2.5 bg-[#CBD5E1] hover:bg-[#94A3B8]'
+                        ? 'w-6 bg-[#2563EB]'
+                        : 'w-2 bg-[#CBD5E1] hover:bg-[#94A3B8]'
                     }`}
                   />
                 ))}
@@ -515,10 +527,10 @@ export const Reviews: React.FC = () => {
               <button
                 type="button"
                 onClick={handleNext}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFFFFF] hover:bg-[#2563EB]/5 border border-[#2563EB]/30 hover:border-[#2563EB] text-[#2563EB] font-heading font-semibold text-sm transition-all shadow-xs hover:shadow-sm cursor-pointer active:scale-98"
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#2563EB]/5 border border-[#2563EB]/30 hover:border-[#2563EB] text-[#2563EB] font-heading font-semibold text-xs transition-all shadow-xs hover:shadow-sm cursor-pointer active:scale-98"
               >
                 <span>Show More Reviews</span>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-3.5 h-3.5" />
               </button>
             </div>
           )}
@@ -536,7 +548,7 @@ export const Reviews: React.FC = () => {
                 key={`mobile-${r.id}`}
                 className="w-[calc(100vw-68px)] max-w-[340px] shrink-0 snap-start flex flex-col"
               >
-                <div className="bg-[#FFFFFF] rounded-2xl p-4 border border-[#2563EB]/20 shadow-xs flex flex-col justify-between h-full">
+                <div className="bg-[#FFFFFF] rounded-2xl p-3.5 border border-[#2563EB]/20 shadow-xs flex flex-col justify-between h-full">
                   <div>
                     {/* Stars and the name on one line */}
                     <div className="flex items-center justify-between gap-2">
@@ -546,24 +558,24 @@ export const Reviews: React.FC = () => {
                         >
                           {r.name.charAt(0)}
                         </div>
-                        <span className="font-heading font-bold text-[14px] text-[#111C2C] truncate">
+                        <span className="font-heading font-bold text-[13.5px] text-[#111C2C] truncate">
                           {r.name}
                         </span>
                       </div>
                       <div className="flex text-[#F59E0B] shrink-0" aria-label={`${r.rating} stars`}>
                         {[...Array(r.rating)].map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
+                          <Star key={i} className="w-3 h-3 fill-[#F59E0B] text-[#F59E0B]" />
                         ))}
                       </div>
                     </div>
 
-                    {/* Max 3 lines of review text (clipped with ellipsis), 14px text */}
-                    <p className="font-sans text-[14px] text-[#111C2C]/80 leading-relaxed line-clamp-3 mt-3">
+                    {/* Max 3 lines of review text (clipped with ellipsis) */}
+                    <p className="font-sans text-[13px] text-[#111C2C]/80 leading-relaxed line-clamp-3 mt-2.5">
                       &ldquo;{r.quote}&rdquo;
                     </p>
                   </div>
 
-                  <div className="mt-3 pt-2.5 border-t border-[#111C2C]/5 flex items-center justify-between text-[11px] text-[#111C2C]/60">
+                  <div className="mt-2.5 pt-2 border-t border-[#111C2C]/5 flex items-center justify-between text-[10.5px] text-[#111C2C]/60">
                     <span className="truncate max-w-[180px]">{r.treatment}</span>
                     <span className="text-[#16A34A] font-semibold flex items-center gap-1 shrink-0">
                       <CheckCircle className="w-3 h-3" />
@@ -577,7 +589,7 @@ export const Reviews: React.FC = () => {
 
           {/* Small dots under the row to show the position (active dot is blue) */}
           <div
-            className="flex justify-center items-center gap-1.5 mt-3"
+            className="flex justify-center items-center gap-1.5 mt-2.5"
             role="tablist"
             aria-label="Review position dots"
           >
@@ -589,10 +601,10 @@ export const Reviews: React.FC = () => {
                 aria-label={`Go to review ${idx + 1}`}
                 role="tab"
                 aria-selected={activeMobileReview === idx}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                   activeMobileReview === idx
-                    ? 'w-5 bg-[#2563EB]'
-                    : 'w-2 bg-[#CBD5E1] hover:bg-[#94A3B8]'
+                    ? 'w-4 bg-[#2563EB]'
+                    : 'w-1.5 bg-[#CBD5E1] hover:bg-[#94A3B8]'
                 }`}
               />
             ))}
@@ -600,9 +612,9 @@ export const Reviews: React.FC = () => {
         </div>
 
         {/* Trust badge footer (desktop and tablet only) */}
-        <div className="hidden md:block mt-12 text-center">
-          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-sans text-[#111C2C]/70 bg-[#FFFFFF] border border-[#111C2C]/10 rounded-full px-5 py-2.5 shadow-xs">
-            <CheckCircle className="w-4 h-4 text-[#16A34A]" />
+        <div className="hidden md:block mt-4 text-center">
+          <div className="inline-flex items-center gap-2 text-xs font-sans text-[#111C2C]/70 bg-[#FFFFFF] border border-[#111C2C]/10 rounded-full px-4 py-1.5 shadow-xs">
+            <CheckCircle className="w-3.5 h-3.5 text-[#16A34A]" />
             <span>All reviews are from genuine patients verified through our India clinic appointment records.</span>
           </div>
         </div>

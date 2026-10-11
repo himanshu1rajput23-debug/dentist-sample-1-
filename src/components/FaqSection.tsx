@@ -90,7 +90,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking }) => {
             onClick={onOpenBooking}
             className="px-8 py-3.5 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[17px] shadow-sm hover:bg-[#15803d] active:bg-[#166534] transition-all cursor-pointer"
           >
-            Book a Call
+            Book Appointment
           </button>
         </div>
       </div>

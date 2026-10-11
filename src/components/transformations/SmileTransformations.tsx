@@ -311,7 +311,7 @@ export const SmileTransformations: React.FC<SmileTransformationsProps> = ({ onOp
           className="h-12 sm:h-14 px-8 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[16px] sm:text-[17px] shadow-lg shadow-[#16A34A]/20 hover:bg-[#15803d] active:bg-[#166534] transition-all cursor-pointer flex items-center justify-center gap-2 w-full sm:w-auto"
         >
           <Calendar className="w-5 h-5 text-[#FFFFFF]" />
-          <span>Book a Call</span>
+          <span>Book Appointment</span>
         </button>
       </div>
 

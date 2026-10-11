@@ -26,7 +26,7 @@ export const TrustBar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
           <span className="font-heading font-bold text-sm text-[#111C2C] uppercase tracking-wider shrink-0">
-            Indian families trust Apex
+            Indian families trust Rahul Clinic
           </span>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 w-full lg:w-auto">
             {trustItems.map((item, idx) => (

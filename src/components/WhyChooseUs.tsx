@@ -38,7 +38,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenBooking }) => {
             <div className="space-y-4">
               {/* Eyebrow pill: blue tint background, text --blue-deep, weight 600 */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2563EB]/10 text-xs font-heading font-semibold text-[#2563EB]">
-                <span>Why Apex</span>
+                <span>Why Rahul Clinic</span>
               </div>
               <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-[#111C2C] tracking-tight">
                 Made for people who hate the dentist.
@@ -74,7 +74,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenBooking }) => {
                 onClick={onOpenBooking}
                 className="px-8 py-4 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[17px] shadow-md hover:bg-[#15803d] active:bg-[#166534] transition-all cursor-pointer inline-flex items-center gap-2"
               >
-                Book a Call
+                Book Appointment
               </button>
             </div>
           </div>
@@ -148,7 +148,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenBooking }) => {
                     onClick={onOpenBooking}
                     className="w-full py-3.5 px-4 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[17px] hover:bg-[#15803d] active:bg-[#166534] transition-colors cursor-pointer"
                   >
-                    Book a Call
+                    Book Appointment
                   </button>
                 </div>
               </div>

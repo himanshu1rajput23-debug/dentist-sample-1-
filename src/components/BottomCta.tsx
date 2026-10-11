@@ -36,7 +36,7 @@ export const BottomCta: React.FC<BottomCtaProps> = ({ onOpenBooking, config }) =
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[17px] shadow-xl hover:bg-[#15803d] active:bg-[#166534] active:scale-[0.99] transition-all cursor-pointer flex items-center justify-center gap-2"
           >
             <Calendar className="w-5 h-5 text-[#FFFFFF]" />
-            <span>Book a Call</span>
+            <span>Book Appointment</span>
           </button>
 
           <a
@@ -44,7 +44,7 @@ export const BottomCta: React.FC<BottomCtaProps> = ({ onOpenBooking, config }) =
             className="w-full sm:w-auto px-7 py-4 rounded-full border-2 border-[#FFFFFF] text-[#FFFFFF] font-heading font-semibold text-[17px] hover:bg-[#FFFFFF]/10 transition-colors flex items-center justify-center gap-2"
           >
             <Phone className="w-4 h-4 text-[#FFFFFF]" />
-            <span>Call (02) 8319 2888</span>
+            <span>Call {config.phone}</span>
           </a>
         </div>
 

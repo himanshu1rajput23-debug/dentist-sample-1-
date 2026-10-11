@@ -67,20 +67,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, config }) => {
         />
       </div>
 
-      {/* Floating "Book a Call" card lowered to the very bottom right corner (does not cover face or smile) */}
+      {/* Floating "Book Appointment" card lowered to the very bottom right corner (does not cover face or smile) */}
       <div
         onClick={onOpenBooking}
         className="hidden md:flex absolute bottom-3 right-4 lg:bottom-4 lg:right-6 z-20 items-center gap-3 bg-[#FFFFFF]/95 backdrop-blur-md px-4 py-3 rounded-2xl border border-[#2563EB]/15 shadow-xl hover:shadow-2xl transition-all cursor-pointer group hover:scale-[1.02]"
         role="button"
         tabIndex={0}
-        aria-label="Book a call"
+        aria-label="Book appointment"
       >
         <div className="w-10 h-10 rounded-xl bg-[#16A34A] flex items-center justify-center text-[#FFFFFF] shadow-sm group-hover:bg-[#15803d] transition-colors shrink-0">
           <Calendar className="w-5 h-5 text-[#FFFFFF]" />
         </div>
         <div className="text-left">
           <div className="font-heading font-bold text-sm text-[#111C2C] flex items-center gap-1.5">
-            <span>Book a Call</span>
+            <span>Book Appointment</span>
             <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse"></span>
           </div>
           <div className="text-xs text-[#111C2C]/70">No pressure · 100% Free visit</div>
@@ -207,7 +207,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, config }) => {
               className="w-full sm:w-auto h-12 sm:h-auto px-6 sm:px-8 py-0 sm:py-4 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[16px] sm:text-[17px] shadow-lg shadow-[#16A34A]/20 hover:bg-[#15803d] active:bg-[#166534] transition-all cursor-pointer flex items-center justify-center gap-2"
             >
               <Calendar className="w-5 h-5 text-[#FFFFFF]" />
-              <span>Book a Call</span>
+              <span>Book Appointment</span>
             </button>
 
             {/* Secondary button: hidden on mobile (<sm), visible on sm+ */}
@@ -215,7 +215,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, config }) => {
               href={`tel:${config.phone.replace(/\s+/g, '')}`}
               className="hidden sm:inline-flex px-6 py-4 rounded-full bg-[#FFFFFF] border-2 border-[#2563EB] text-[#2563EB] font-heading font-semibold text-[17px] hover:bg-[#2563EB]/[0.08] transition-colors text-center items-center justify-center"
             >
-              Call (02) 8319 2888
+              Call {config.phone}
             </a>
           </div>
 

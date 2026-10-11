@@ -140,7 +140,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, ini
               id="modal-headline"
               className="font-heading text-xl font-bold tracking-tight text-[#111C2C]"
             >
-              {isSuccess ? 'Thank you!' : 'Book your free visit'}
+              {isSuccess ? 'Thank you!' : 'Book your appointment'}
             </h2>
           </div>
           <button

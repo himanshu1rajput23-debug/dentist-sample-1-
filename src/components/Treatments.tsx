@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import {
   VeneerIcon,
   ImplantIcon,
@@ -85,10 +87,14 @@ const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelect }) =>
       <div className="mt-[14px] pt-[14px] border-t border-[#111C2C]/10">
         <button
           type="button"
-          onClick={() => onSelect(treatment.topic)}
-          className="w-full h-[44px] px-[20px] rounded-full bg-[#FFFFFF] border-2 border-[#2563EB] text-[#2563EB] font-heading font-semibold text-[15px] hover:bg-[#2563EB]/[0.08] transition-all cursor-pointer flex items-center justify-center text-center"
+          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            onSelect(treatment.topic);
+          }}
+          className="w-full h-[44px] px-[20px] rounded-full bg-[#FFFFFF] border-2 border-[#2563EB] text-[#2563EB] font-heading font-semibold text-[15px] hover:bg-[#2563EB]/[0.08] active:bg-[#2563EB] active:text-[#FFFFFF] transition-all cursor-pointer flex items-center justify-center text-center"
         >
-          Book a Call
+          Book Appointment
         </button>
       </div>
     </div>
@@ -96,6 +102,10 @@ const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelect }) =>
 };
 
 export const Treatments: React.FC<TreatmentsProps> = ({ onSelectTopic }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const resumeTimerRef = useRef<NodeJS.Timeout | null>(null);
+
   const treatments: (TreatmentItem & { badge?: string })[] = [
     {
       id: 'smile',
@@ -155,28 +165,146 @@ export const Treatments: React.FC<TreatmentsProps> = ({ onSelectTopic }) => {
     },
   ];
 
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % treatments.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + treatments.length) % treatments.length);
+  };
+
+  const pauseAutoPlayTemporarily = () => {
+    setIsPaused(true);
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 4000);
+  };
+
+  // Automatic right-to-left slide interval for mobile
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % treatments.length);
+    }, 3800);
+    return () => clearInterval(interval);
+  }, [isPaused, treatments.length]);
+
   return (
     <section id="treatments" className="py-14 sm:py-16 lg:py-20 bg-[#FFFFFF] border-y border-[#111C2C]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-[32px]">
-          {/* Eyebrow pill: blue tint background, text --blue-deep, weight 600 */}
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-[28px] sm:mb-[32px]">
+          {/* Eyebrow pill */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2563EB]/10 text-xs font-heading font-semibold text-[#2563EB]">
             <span>Our care</span>
           </div>
           <h2 className="font-heading text-[28px] lg:text-[36px] font-extrabold text-[#111C2C] tracking-tight leading-tight">
             How can we help your smile today?
           </h2>
-          <p className="font-sans text-[17px] text-[#111C2C]/70 max-w-[640px] mx-auto leading-relaxed">
+          <p className="font-sans text-[16px] sm:text-[17px] text-[#111C2C]/70 max-w-[640px] mx-auto leading-relaxed">
             Pick what you need. We will help you take the first step.
           </p>
         </div>
 
-        {/* Treatment Cards Grid: 3 cols on desktop, 2 cols on tablet, 1 col on mobile, 16px gap */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[16px]">
+        {/* Desktop & Tablet: Standard Grid Layout (3 cols on desktop, 2 cols on tablet) */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-[16px]">
           {treatments.map((t) => (
             <TreatmentCard key={t.id} treatment={t} onSelect={onSelectTopic} />
           ))}
+        </div>
+
+        {/* Phone Variant: Sliding Right-to-Left Animation + Free 360° Drag in Any Direction */}
+        <div className="block md:hidden">
+          <div
+            className="relative overflow-visible py-2"
+            onTouchStart={pauseAutoPlayTemporarily}
+          >
+            {/* Sliding & Draggable Container */}
+            <div className="relative min-h-[460px] flex items-center justify-center">
+              <AnimatePresence mode="popLayout" initial={false}>
+                <motion.div
+                  key={treatments[currentIndex].id}
+                  drag
+                  dragSnapToOrigin
+                  dragElastic={0.4}
+                  initial={{ x: 140, opacity: 0, scale: 0.94 }}
+                  animate={{ x: 0, opacity: 1, scale: 1 }}
+                  exit={{ x: -140, opacity: 0, scale: 0.94 }}
+                  transition={{ type: 'spring', stiffness: 280, damping: 26 }}
+                  whileDrag={{
+                    scale: 1.05,
+                    zIndex: 50,
+                    rotate: 1.5,
+                    boxShadow: '0 20px 30px -5px rgba(37,99,235,0.25), 0 10px 15px -5px rgba(0,0,0,0.1)',
+                    cursor: 'grabbing',
+                  }}
+                  onDragStart={pauseAutoPlayTemporarily}
+                  onDragEnd={(_, info) => {
+                    // If dragged horizontally past 50px, advance cards
+                    if (info.offset.x < -50) {
+                      handleNext();
+                    } else if (info.offset.x > 50) {
+                      handlePrev();
+                    }
+                  }}
+                  className="w-full max-w-[340px] touch-none select-none cursor-grab active:cursor-grabbing"
+                >
+                  <TreatmentCard
+                    treatment={treatments[currentIndex]}
+                    onSelect={onSelectTopic}
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Phone Variant Navigation Controls: Left/Right arrows + Slide dots */}
+            <div className="flex items-center justify-between mt-4 px-2">
+              <button
+                type="button"
+                onClick={() => {
+                  pauseAutoPlayTemporarily();
+                  handlePrev();
+                }}
+                aria-label="Previous card"
+                className="w-9 h-9 rounded-full bg-white border border-[#2563EB]/25 text-[#111C2C] flex items-center justify-center shadow-xs active:scale-95 transition-all cursor-pointer"
+              >
+                <ChevronLeft className="w-5 h-5 text-[#2563EB]" />
+              </button>
+
+              {/* Dots indicating current treatment card */}
+              <div className="flex items-center gap-1.5" role="tablist" aria-label="Treatment slides">
+                {treatments.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => {
+                      pauseAutoPlayTemporarily();
+                      setCurrentIndex(idx);
+                    }}
+                    role="tab"
+                    aria-selected={currentIndex === idx}
+                    aria-label={`Go to treatment card ${idx + 1}`}
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      currentIndex === idx ? 'w-6 bg-[#2563EB]' : 'w-2 bg-[#2563EB]/25'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => {
+                  pauseAutoPlayTemporarily();
+                  handleNext();
+                }}
+                aria-label="Next card"
+                className="w-9 h-9 rounded-full bg-[#2563EB] text-white flex items-center justify-center shadow-xs active:scale-95 transition-all cursor-pointer"
+              >
+                <ChevronRight className="w-5 h-5 text-white" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

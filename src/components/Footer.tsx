@@ -20,10 +20,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenSettings, c
               <LogoIcon size={40} className="hover:scale-105" />
               <div>
                 <span className="font-heading text-lg font-bold tracking-tight text-[#FFFFFF] block leading-none">
-                  APEX DENTAL
+                  RAHUL CLINIC
                 </span>
                 <span className="font-sans text-[11px] uppercase tracking-widest text-[#FFFFFF]/70 block font-semibold mt-1">
-                  STUDIO &bull; INDIA
+                  INDIA
                 </span>
               </div>
             </div>
@@ -39,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenSettings, c
                 onClick={onOpenBooking}
                 className="px-5 py-2.5 rounded-full bg-[#16A34A] text-[#FFFFFF] font-heading font-bold text-[15px] hover:bg-[#15803d] transition-colors cursor-pointer"
               >
-                Book a Call
+                Book Appointment
               </button>
             </div>
           </div>
@@ -76,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenSettings, c
             <ul className="space-y-2.5 font-sans text-xs text-[#FFFFFF]/85">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
-                <span>Apex Dental Studio, India</span>
+                <span>Rahul Clinic, India</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-[#2563EB] font-bold">&bull;</span>
@@ -88,7 +88,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenSettings, c
                   className="flex items-center gap-2 hover:text-[#FFFFFF] hover:underline hover:decoration-[#2563EB] hover:decoration-2 transition-colors"
                 >
                   <Phone className="w-4 h-4 text-[#2563EB] shrink-0" />
-                  <span>(02) 8319 2888</span>
+                  <span>{config.phone}</span>
                 </a>
               </li>
             </ul>
