@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --green: #16A34A;
+    --blue: #2563EB;
+    --blue-deep: #2563EB;
+    --ink: #111C2C;
+    --white: #FFFFFF;
+    
+    /* Derived tints */
+    --blue-8: rgba(37, 99, 235, 0.08);
+    --blue-25: rgba(37, 99, 235, 0.25);
+    --green-12: rgba(22, 163, 74, 0.12);
+    --ink-70: rgba(17, 28, 44, 0.70);
+    --ink-10: rgba(17, 28, 44, 0.10);
+  }
+
+  * {
+    border-color: rgba(17, 28, 44, 0.10);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #111C2C;
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* Universal accessible focus ring: 3px solid --blue with 2px offset */
+  :focus-visible {
+    outline: 3px solid #2563EB;
+    outline-offset: 2px;
+  }
+}

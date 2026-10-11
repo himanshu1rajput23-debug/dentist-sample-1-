@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" fill="none">
+  <defs>
+    <!-- Forest Green to Mint gradient for health & natural vitality -->
+    <linearGradient id="apex-green" x1="12" y1="20" x2="52" y2="88" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#22C55E" />
+      <stop offset="60%" stop-color="#16A34A" />
+      <stop offset="100%" stop-color="#15803D" />
+    </linearGradient>
+
+    <!-- Trust Blue gradient for clinical precision -->
+    <linearGradient id="apex-blue" x1="48" y1="20" x2="88" y2="88" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60A5FA" />
+      <stop offset="50%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+
+    <!-- Radiance Sparkle gradient -->
+    <linearGradient id="apex-sparkle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#93C5FD" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+
+    <!-- Subtle drop shadow filter for depth -->
+    <filter id="soft-shadow" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12" flood-color="#111C2C" />
+    </filter>
+  </defs>
+
+  <g filter="url(#soft-shadow)">
+    <!-- Left lobe / root: Organic health green swoosh -->
+    <path
+      d="M 48 23
+         C 34 19, 18 26, 15 42
+         C 12 56, 17 70, 24 80
+         C 28 86, 34 89, 39 89
+         C 43 89, 44 83, 45 77
+         C 47 64, 48 51, 48 38
+         Z"
+      fill="url(#apex-green)"
+    />
+
+    <!-- Right lobe / root: Professional clinical trust blue swoosh -->
+    <path
+      d="M 52 23
+         C 66 19, 82 26, 85 42
+         C 88 56, 83 70, 76 80
+         C 72 86, 66 89, 61 89
+         C 57 89, 56 83, 55 77
+         C 53 64, 52 51, 52 38
+         Z"
+      fill="url(#apex-blue)"
+    />
+
+    <!-- Connecting smile arc / light negative space -->
+    <path
+      d="M 31 46
+         Q 50 63 69 46
+         Q 50 56 31 46"
+      fill="#FFFFFF"
+      opacity="0.95"
+    />
+
+    <!-- Brilliant 4-point radiance star (top right cusp) -->
+    <path
+      d="M 78 14
+         Q 78 22 86 22
+         Q 78 22 78 30
+         Q 78 22 70 22
+         Q 78 22 78 14 Z"
+      fill="url(#apex-sparkle)"
+    />
+    <circle cx="78" cy="22" r="1.8" fill="#FFFFFF" />
+  </g>
+</svg>

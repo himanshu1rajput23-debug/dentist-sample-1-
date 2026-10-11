@@ -1,0 +1,6 @@
+{
+  "name": "Apex Dental Studio - Free Consultation Booking",
+  "description": "Premium dental consultation booking platform for smile makeovers, dental implants, Invisalign, and general gentle dentistry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
